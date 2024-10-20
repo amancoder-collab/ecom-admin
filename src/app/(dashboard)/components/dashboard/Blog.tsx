@@ -1,5 +1,4 @@
-
-import Link from "next/link";
+import Link from 'next/link';
 import {
   CardContent,
   Typography,
@@ -7,45 +6,45 @@ import {
   Rating,
   Tooltip,
   Fab,
-  Avatar
-} from "@mui/material";
+  Avatar,
+} from '@mui/material';
 // import img1 from "public/images/products/s4.jpg";
 // import img2 from "public/images/products/s5.jpg";
 // import img3 from "public/images/products/s7.jpg";
 // import img4 from "public/images/products/s11.jpg";
-import { Stack } from "@mui/system";
-import { IconBasket } from "@tabler/icons-react";
-import BlankCard from "@/app/(DashboardLayout)/components/shared/BlankCard";
-import Image from "next/image";
+import { Stack } from '@mui/system';
+import { IconBasket } from '@tabler/icons-react';
+import BlankCard from '@/app/(dashboard)/components/shared/BlankCard';
+import Image from 'next/image';
 
 const ecoCard = [
   {
-    title: "Boat Headphone",
-    subheader: "September 14, 2023",
+    title: 'Boat Headphone',
+    subheader: 'September 14, 2023',
     photo: '/images/products/s4.jpg',
     salesPrice: 375,
     price: 285,
     rating: 4,
   },
   {
-    title: "MacBook Air Pro",
-    subheader: "September 14, 2023",
+    title: 'MacBook Air Pro',
+    subheader: 'September 14, 2023',
     photo: '/images/products/s5.jpg',
     salesPrice: 650,
     price: 900,
     rating: 5,
   },
   {
-    title: "Red Valvet Dress",
-    subheader: "September 14, 2023",
+    title: 'Red Valvet Dress',
+    subheader: 'September 14, 2023',
     photo: '/images/products/s7.jpg',
     salesPrice: 150,
     price: 200,
     rating: 3,
   },
   {
-    title: "Cute Soft Teddybear",
-    subheader: "September 14, 2023",
+    title: 'Cute Soft Teddybear',
+    subheader: 'September 14, 2023',
     photo: '/images/products/s11.jpg',
     salesPrice: 285,
     price: 345,
@@ -61,19 +60,19 @@ const Blog = () => {
           <BlankCard>
             <Typography component={Link} href="/">
               <Avatar
-                src={product.photo} variant="square"
+                src={product.photo}
+                variant="square"
                 sx={{
                   height: 250,
                   width: '100%',
                 }}
-                
               />
             </Typography>
             <Tooltip title="Add To Cart">
               <Fab
                 size="small"
                 color="primary"
-                sx={{ bottom: "75px", right: "15px", position: "absolute" }}
+                sx={{ bottom: '75px', right: '15px', position: 'absolute' }}
               >
                 <IconBasket size="16" />
               </Fab>
@@ -91,7 +90,7 @@ const Blog = () => {
                   <Typography
                     color="textSecondary"
                     ml={1}
-                    sx={{ textDecoration: "line-through" }}
+                    sx={{ textDecoration: 'line-through' }}
                   >
                     ${product.salesPrice}
                   </Typography>

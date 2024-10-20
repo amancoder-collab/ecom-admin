@@ -1,5 +1,6 @@
 import { Controller } from 'react-hook-form';
 import CustomTextField from './CustomTextField';
+import { InputBaseComponentProps, TextFieldProps } from '@mui/material';
 
 interface FormTextFieldProps {
   type?: string;
@@ -15,27 +16,31 @@ export const FormTextField = ({
   label,
   placeholder,
   type = 'text',
-}: FormTextFieldProps) => {
+  ...otherProps
+}: FormTextFieldProps & TextFieldProps) => {
   return (
     <Controller
       name={name}
       control={control}
-      render={({
-        field: { onChange, value },
-        fieldState: { error },
-        formState,
-      }) => (
+      render={({ field: { onChange, value }, fieldState: { error } }) => (
         <CustomTextField
           helperText={error ? error.message : null}
-          size="small"
           error={!!error}
-          onChange={onChange}
+          onChange={
+            type === 'number'
+              ? (e: React.ChangeEvent<HTMLInputElement>) => {
+                  const value = e.target.value;
+                  onChange(value ? Number(value) : null);
+                }
+              : onChange
+          }
           value={value}
           fullWidth
           placeholder={placeholder}
           label={label}
           type={type}
           variant="outlined"
+          {...otherProps}
         />
       )}
     />

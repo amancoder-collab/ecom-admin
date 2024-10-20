@@ -1,8 +1,8 @@
 'use client';
 import Link from 'next/link';
 import { Grid, Box, Card, Stack, Typography } from '@mui/material';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
+import PageContainer from '@/app/(dashboard)/components/container/PageContainer';
+import Logo from '@/app/(dashboard)/layout/shared/logo/Logo';
 import { LoginTemplate } from '@/modules/auth/login/templates';
 
 const Login2 = () => {

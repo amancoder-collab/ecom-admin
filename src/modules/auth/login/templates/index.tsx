@@ -10,14 +10,14 @@ import {
   Checkbox,
 } from '@mui/material';
 import Link from 'next/link';
-import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import CustomTextField from '@/app/(dashboard)/components/forms/theme-elements/CustomTextField';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginFormSchema, LoginFormSchema } from '../form/schema';
 import { useForm } from 'react-hook-form';
 import { api } from '@/api';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
-import { FormTextField } from '@/app/(DashboardLayout)/components/forms/theme-elements/FormTextField';
+import { FormTextField } from '@/app/(dashboard)/components/forms/theme-elements/FormTextField';
 
 interface loginType {
   title?: string;

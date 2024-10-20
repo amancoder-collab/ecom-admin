@@ -1,9 +1,11 @@
 import { api } from '@/api';
 import { useQuery } from '@tanstack/react-query';
 
+const QUERY_KEY = ['products'];
+
 export const useProducts = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ['products'],
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: QUERY_KEY,
     queryFn: () => api.product.all(),
     retry: false,
   });
@@ -11,5 +13,6 @@ export const useProducts = () => {
   return {
     products: data?.data?.data,
     isLoading,
+    refetchProducts: refetch,
   };
 };
