@@ -26,7 +26,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
 
   const onDrop = useCallback(
     async (acceptedFiles: File[]) => {
-      if (!multiple && value) return; // Prevent upload if single image and already has a value
+      if (!multiple && value) return;
 
       setUploading(true);
       try {
@@ -49,7 +49,6 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
         }
       } catch (error) {
         console.error('Error uploading images:', error);
-        // Handle error (e.g., show an error message to the user)
       } finally {
         setUploading(false);
       }
@@ -75,7 +74,6 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
 
   const renderImages = () => {
     const images = Array.isArray(value) ? value : [value];
-    console.log(images, 'images');
     return images.map(
       (url, index) =>
         url && (

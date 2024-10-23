@@ -3,6 +3,6 @@ import { CrudClient } from './templates/CrudClient';
 
 export class ProductClient extends CrudClient<IProduct> {
   constructor() {
-    super('admin/products');
+    super('admin/product');
   }
 }

@@ -1,6 +1,9 @@
+import {
+  OutlinedTextFieldProps,
+  TextField,
+  TextFieldProps,
+} from '@mui/material';
 import { Controller } from 'react-hook-form';
-import CustomTextField from './CustomTextField';
-import { InputBaseComponentProps, TextFieldProps } from '@mui/material';
 
 interface FormTextFieldProps {
   type?: string;
@@ -16,14 +19,17 @@ export const FormTextField = ({
   label,
   placeholder,
   type = 'text',
+  variant = 'outlined',
   ...otherProps
 }: FormTextFieldProps & TextFieldProps) => {
+  const { InputLabelProps, ...rest } = otherProps;
+
   return (
     <Controller
       name={name}
       control={control}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
-        <CustomTextField
+        <TextField
           helperText={error ? error.message : null}
           error={!!error}
           onChange={
@@ -39,8 +45,12 @@ export const FormTextField = ({
           placeholder={placeholder}
           label={label}
           type={type}
+          {...rest}
           variant="outlined"
-          {...otherProps}
+          InputLabelProps={{
+            shrink: true,
+            ...InputLabelProps,
+          }}
         />
       )}
     />
