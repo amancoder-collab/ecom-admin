@@ -3,7 +3,7 @@ import { Grid, Box, Card, Typography, Stack } from '@mui/material';
 import Link from 'next/link';
 import PageContainer from '@/app/(dashboard)/components/container/PageContainer';
 import Logo from '@/app/(dashboard)/layout/shared/logo/Logo';
-import AuthRegister from '../auth/AuthRegister';
+import AuthRegister from '@/modules/auth/register/templates';
 
 const Register2 = () => (
   <PageContainer title="Register" description="this is Register page">
@@ -72,7 +72,7 @@ const Register2 = () => (
                   </Typography>
                   <Typography
                     component={Link}
-                    href="/authentication/login"
+                    href="/auth/login"
                     fontWeight="500"
                     sx={{
                       textDecoration: 'none',

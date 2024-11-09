@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import Link from 'next/link';
-import CustomTextField from '@/app/(dashboard)/components/forms/theme-elements/CustomTextField';
 import { Stack } from '@mui/system';
 
 interface registerType {
@@ -63,7 +62,7 @@ const AuthRegister = ({ title, subtitle, subtext }: registerType) => (
         size="large"
         fullWidth
         component={Link}
-        href="/authentication/login"
+        href="/auth/login"
       >
         Sign Up
       </Button>
