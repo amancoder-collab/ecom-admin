@@ -1,9 +1,4 @@
 'use client';
-import { Grid, Box, Card, Typography, Stack } from '@mui/material';
-import Link from 'next/link';
-import PageContainer from '@/app/(dashboard)/components/container/PageContainer';
-import Logo from '@/app/(dashboard)/layout/shared/logo/Logo';
-import AuthRegister from '@/modules/auth/register/templates';
 
 const Register2 = () => (
   <></>

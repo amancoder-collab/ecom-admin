@@ -2,7 +2,6 @@
 
 import { api } from '@/api';
 import PageContainer from '@/app/(dashboard)/components/container/PageContainer';
-import DashboardCard from '@/app/(dashboard)/components/shared/DashboardCard';
 import { useProducts } from '@/modules/product/queries/use-products';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -104,7 +103,7 @@ export const ProductTemplate = () => {
                 </TableCell>
                 <TableCell>{product?.name}</TableCell>
                 <TableCell>{product?.description}</TableCell>
-                <TableCell>{product?.stock}</TableCell>
+                {/* <TableCell>{product?.stock}</TableCell> */}
                 <TableCell>₹{product?.discountedPrice?.toFixed(2)}</TableCell>
                 <TableCell>
                   <IconButton
