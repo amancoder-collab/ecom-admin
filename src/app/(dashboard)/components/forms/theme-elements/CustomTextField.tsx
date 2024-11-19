@@ -6,6 +6,7 @@
 //   label,
 //   placeholder,
 //   type = 'text',
+//   error,
 //   variant = 'outlined',
 //   ...otherProps
 // }: TextFieldProps) => {
