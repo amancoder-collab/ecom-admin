@@ -82,8 +82,9 @@ export const ProductCreateEditTemplate: React.FC<
         : createProductSchemaWithoutVariants,
     ),
     defaultValues: {
-      name: 'Default for Create Test',
-      description: 'Test',
+      name: 'Premium Cotton Blend Crew Neck T-Shirt',
+      description:
+        'Experience ultimate comfort with our classic crew neck t-shirt. Crafted from premium cotton blend fabric, this versatile piece features a perfect fit, breathable material, and superior durability. Perfect for everyday wear, this t-shirt maintains its shape and color through multiple washes. Available in various sizes and colors to suit your style.',
       isActive: true,
       attributes: [
         { title: 'Color', values: ['Red', 'Blue', 'Green'] },
@@ -350,19 +351,19 @@ export const ProductCreateEditTemplate: React.FC<
                       )}
                     />
                   </Grid>
-                  <Grid item xs={2}>
+                  {/* <Grid item xs={2}>
                     <IconButton onClick={() => removeAttribute(index)}>
                       <Delete />
                     </IconButton>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               ))}
-              <Button
+              {/* <Button
                 startIcon={<Add />}
                 onClick={() => appendAttribute({ title: '', values: [] })}
               >
                 Add Attribute
-              </Button>
+              </Button> */}
             </Grid>
           </Grid>
         </AccordionDetails>
@@ -391,7 +392,24 @@ export const ProductCreateEditTemplate: React.FC<
                   <Grid item xs={12}>
                     <Typography variant="h6">Variant {index + 1}</Typography>
                   </Grid>
-                  <Grid item xs={12} display={'flex'} alignItems={'end'}>
+                  <Grid
+                    item
+                    xs={12}
+                    display={'flex'}
+                    justifyContent={'end'}
+                    alignItems={'end'}
+                  >
+                    <Button
+                      onClick={() => {
+                        appendVariant({
+                          ...watch(`variants.${index}`),
+                        });
+                      }}
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Duplicate
+                    </Button>
                     <IconButton
                       color="error"
                       onClick={() => {
@@ -671,6 +689,14 @@ export const ProductCreateEditTemplate: React.FC<
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <FormTextField
+                    name="name"
+                    control={control}
+                    label="Name"
+                    required
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormTextField
                     name="description"
                     control={control}
                     label="Description"
@@ -678,14 +704,6 @@ export const ProductCreateEditTemplate: React.FC<
                     required
                     multiline
                     rows={4}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <FormTextField
-                    name="name"
-                    control={control}
-                    label="Name"
-                    required
                   />
                 </Grid>
                 {!hasVariants && (

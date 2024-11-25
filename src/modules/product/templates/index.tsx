@@ -87,7 +87,6 @@ export const ProductTemplate = () => {
               <TableCell>ID</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Description</TableCell>
-              <TableCell>Stock</TableCell>
               <TableCell>Price</TableCell>
               <TableCell>Actions</TableCell>
             </TableRow>
