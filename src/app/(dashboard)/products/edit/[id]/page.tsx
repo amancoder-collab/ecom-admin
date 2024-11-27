@@ -1,4 +1,4 @@
-import { ProductCreateEditTemplate } from '@/modules/product/templates/form/create/create';
+import { ProductCreateEditTemplate } from '@/modules/product/templates/form/create-edit/create-edit';
 
 interface ProductEditPageProps {
   params: {

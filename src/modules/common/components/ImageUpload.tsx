@@ -78,12 +78,14 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
       (url, index) =>
         url && (
           <Box key={url} sx={{ position: 'relative' }}>
-            <Image
-              width={100}
-              height={100}
+            <img
               src={url}
-              alt={`Uploaded ${index}`}
-              className="object-cover"
+              style={{
+                width: '100px',
+                height: '100px',
+                objectFit: 'cover',
+              }}
+              alt=""
             />
             <IconButton
               size="small"

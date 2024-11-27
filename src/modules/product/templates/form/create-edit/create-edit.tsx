@@ -51,6 +51,7 @@ export const ProductCreateEditTemplate: React.FC<
   const router = useRouter();
   const { refetchProducts } = useProducts();
   const { product, refetchProduct } = useProduct(id as string);
+  const [uniqueAttributes, setUniqueAttributes] = useState<any>([]);
   const [hasVariants, setHasVariants] = useState(true);
   const [isEdit, setIsEdit] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -261,6 +262,16 @@ export const ProductCreateEditTemplate: React.FC<
 
   useEffect(() => {
     if (product) {
+      const uniqueAttributes = product?.attributes?.map((attribute) => {
+        const uniqueValues = Array.from(
+          new Set(attribute.values.map((v) => v.value)),
+        );
+        attribute.values = uniqueValues as any;
+        return attribute;
+      });
+
+      console.log('uniqueAttributes', uniqueAttributes);
+
       reset({
         id: product.id,
         name: product.name,
@@ -274,10 +285,7 @@ export const ProductCreateEditTemplate: React.FC<
         height: product.height,
         length: product.length,
         isActive: product.isActive,
-        attributes: product.attributes?.map((e) => ({
-          title: e.title,
-          values: e.values.map((v) => v.value),
-        })),
+        attributes: uniqueAttributes as any,
         variants: product.variants?.map((e) => ({
           ...e,
           attributes: e.attributeValues?.map((attr) => ({
